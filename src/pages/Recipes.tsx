@@ -5,12 +5,12 @@ export interface IRecipesProps {
 }
 
 export default function Recipes (props: IRecipesProps) {
-  const {tag} = useParams();
-  console.log(tag);
+  const {categoryName} = useParams();
+  console.log(categoryName);
 
   return (
     <div>
-      this is a list of recipes of tag: {tag}
+      this is a list of recipes of categoryName: {categoryName}
     </div>
   );
 }

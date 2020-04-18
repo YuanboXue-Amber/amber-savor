@@ -1,5 +1,5 @@
-export interface ITag {
-  tagName: string;
+export interface ICategory {
+  name: string;
   updatedAt: Date;
   featuredImage: IImage;
 }
@@ -9,7 +9,7 @@ export interface IRecipe {
   uid: string;
   description: string;
   images: IImage[];
-  tags: ITag[];
+  categories: ICategory[];
   ingredients: IIngredient[];
   serves: number;
   timeNeeded: ITimeNeeded;
