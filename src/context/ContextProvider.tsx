@@ -59,6 +59,8 @@ export default class ContextProvider extends React.Component<IContextProviderPro
   getRecipes = async (categoryUID?: string) => {
     let recipes: IRecipe[] = [];
     if (isNullOrUndefined(categoryUID)) {
+      recipes = [];
+    } else if (categoryUID === 'all') {
       const response = await axios.get(`${url}/recipes`);
       recipes = response ? response.data : [];
     } else {

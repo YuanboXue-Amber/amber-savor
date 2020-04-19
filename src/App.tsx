@@ -1,5 +1,9 @@
 import React from 'react';
-import './App.css';
+
+// style
+import './App.scss';
+
+// router
 import { Router, Route, Switch } from 'react-router-dom';
 import history from './utils/History';
 

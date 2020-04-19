@@ -1,0 +1,47 @@
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+/*
+======
+Fonts
+======
+*/
+// sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// handwriting
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+// artsy
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap');
+
+/*
+======
+Variables
+======
+*/
+:root {
+  --primaryFont: 'Roboto', sans-serif;
+  --handwritingFont: 'Caveat', cursive;
+  --artsyFont: 'Cinzel Decorative', cursive;
+}
+
+/*
+======
+Global Styles
+======
+*/
+body {
+  font-family: var(--primaryFont);
+}
+
+/*
+======
+Header
+======
+*/
+nav {
+  text-transform: capitalize;
+}
+
+.navbar-brand {
+  font-family: var(--artsyFont);
+}
