@@ -1,18 +1,12 @@
 import * as React from 'react';
-import { Context } from '../context/ContextProvider';
 import { Link } from 'react-router-dom';
+import { ICategory } from '../strapi/APItypes';
 
-export default function CategoryList () {
-  const context = React.useContext(Context);
-  const {loading, categoryList, modifyContext} = context;
+export interface ICategoryListProps {
+  categoryList: ICategory[]
+}
 
-  React.useEffect(() => {
-    modifyContext.getCategories();
-  }, [modifyContext])
-
-  if (loading)
-    return (<h2 className='section-title'>Loading...</h2>);
-
+export default function CategoryList ({categoryList}: ICategoryListProps) {
   return (
     <div>
       <ul className='categories'>

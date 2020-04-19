@@ -14,10 +14,14 @@ import RecipeCategories from './pages/RecipeCategories';
 // context
 import ContextProvider from './context/ContextProvider';
 
+// components
+import Header from './component/Header';
+
 function App() {
   return (
     <ContextProvider>
       <Router history={history}>
+        <Header />
         <Switch>
           <Route exact path='/'  component={Home} />
           <Route exact path='/about'  component={About} />
