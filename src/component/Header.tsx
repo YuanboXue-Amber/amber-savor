@@ -10,6 +10,10 @@ import {
   Button,
 } from 'react-bootstrap';
 
+const handleSearch = () => {
+  console.log('search')
+}
+
 export default function Header() {
   const context = React.useContext(Context);
   const { loading, categoryList, modifyContext } = context;
@@ -70,7 +74,7 @@ export default function Header() {
                 placeholder='Search'
                 className='mr-sm-2'
               />
-              <Button variant='light'>
+              <Button variant='light' onClick={handleSearch}>
                 <GoSearch />
               </Button>
             </div>

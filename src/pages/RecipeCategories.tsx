@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CategoryList from '../component/CategoryList';
 import { Context } from '../context/ContextProvider';
+import Loading from '../component/Loading';
 
 export interface IRecipeCategoriesProps {
 }
@@ -10,7 +11,7 @@ export default function RecipeCategories (props: IRecipeCategoriesProps) {
   const {loading, categoryList} = context;
 
   if (loading)
-    return (<h2 className='section-title'>Loading...</h2>);
+    return (<Loading />);
 
   return (
     <div>

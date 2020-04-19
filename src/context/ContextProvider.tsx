@@ -80,7 +80,7 @@ export default class ContextProvider extends React.Component<IContextProviderPro
       this.setState({ ...this.state, loading: true, recipe: undefined});
     } else {
       if (isNullOrUndefined(this.state.recipeList) || this.state.recipeList.length <= 0) {
-        await this.getRecipes();
+        await this.getRecipes('all');
       }
       const recipe = this.state.recipeList.find(item => item.uid === recipeUID)
       this.setState({ ...this.state, loading: false, recipe});

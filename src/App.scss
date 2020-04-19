@@ -45,3 +45,16 @@ nav {
 .navbar-brand {
   font-family: var(--artsyFont);
 }
+
+/*
+======
+loading
+=====
+*/
+.loading {
+  position: fixed; /* or absolute */
+  top: 20%;
+  left: 50%;
+  transform: scale(3);
+  font-family: var(--handwritingFont);
+}

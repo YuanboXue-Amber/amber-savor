@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import RecipeList from '../component/RecipeList';
 import { Context } from '../context/ContextProvider';
+import Loading from '../component/Loading';
 
 export default function Recipes () {
   const {categoryUID} = useParams();
@@ -13,10 +14,9 @@ export default function Recipes () {
   }, [categoryUID, modifyContext])
 
   if (loading)
-    return (<h2 className='section-title'>Loading...</h2>);
+    return (<Loading />);
 
   if (recipeList.length <= 0) {
-
     return (
       <div>
         no recipe found of categoryUID: {categoryUID}

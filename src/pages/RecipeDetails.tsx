@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import Recipe from '../component/Recipe';
 import { Context } from '../context/ContextProvider';
+import Loading from '../component/Loading';
 
 export interface IRecipeDetailsProps {
 }
@@ -16,7 +17,7 @@ export default function RecipeDetails (props: IRecipeDetailsProps) {
   }, [recipeUID, modifyContext])
 
   if (loading)
-    return (<h2 className='section-title'>Loading...</h2>);
+    return (<Loading />);
 
   if (!recipe) {
     return (
