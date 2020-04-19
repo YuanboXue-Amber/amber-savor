@@ -1,7 +1,9 @@
 export interface ICategory {
   name: string;
+  uid: string;
   updatedAt: Date;
   featuredImage: IImage;
+  recipes: IRecipe[];
 }
 
 export interface IRecipe {
