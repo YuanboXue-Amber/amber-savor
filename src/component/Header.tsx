@@ -9,44 +9,46 @@ import {
   Button,
   Dropdown,
   NavLink,
-  NavItem
+  NavItem,
 } from 'react-bootstrap';
 
 const handleSearch = () => {
-  console.log('search')
-}
+  console.log('search');
+};
 
-const CustomMenu = React.forwardRef(
-  (props: any, ref) => {
-    const { children, style, className, 'aria-labelledby': labeledBy } = props;
-    const [value, setValue] = useState('');
+const CustomMenu = React.forwardRef((props: any, ref) => {
+  const { children, style, className, 'aria-labelledby': labeledBy } = props;
+  const [value, setValue] = useState('');
 
-    return (
-      <div
-        ref={ref as any}
-        style={style}
-        className={className}
-        aria-labelledby={labeledBy}
-      >
-        <FormControl
-          autoFocus
-          className="mx-3 my-2 w-auto"
-          placeholder="Type to filter..."
-          onChange={(e: any) => setValue(e.target.value)}
-          value={value}
-        />
-        <ul className="list-unstyled">
-          {React.Children.toArray(children).filter(
-            (child: any) =>
-              (!value || value.trim().length <= 0) ||
-              (child.props && child.props.role === 'separator') || // divider
-              (child.props && (child.props.children as string).toLowerCase().includes(value.trim()))
-          )}
-        </ul>
-      </div>
-    );
-  },
-);
+  return (
+    <div
+      ref={ref as any}
+      style={style}
+      className={className}
+      aria-labelledby={labeledBy}
+    >
+      <FormControl
+        autoFocus
+        className='mx-3 my-2 w-auto'
+        placeholder='Type to filter...'
+        onChange={(e: any) => setValue(e.target.value)}
+        value={value}
+      />
+      <ul className='list-unstyled'>
+        {React.Children.toArray(children).filter(
+          (child: any) =>
+            !value ||
+            value.trim().length <= 0 ||
+            (child.props && child.props.role === 'separator') || // divider
+            (child.props &&
+              (child.props.children as string)
+                .toLowerCase()
+                .includes(value.trim()))
+        )}
+      </ul>
+    </div>
+  );
+});
 
 export default function Header() {
   const context = React.useContext(Context);
@@ -82,25 +84,32 @@ export default function Header() {
             {/* recipes dropdown with search box inside for filtering */}
             <div className='container'>
               <Dropdown as={NavItem}>
-                <Dropdown.Toggle id='basic-nav-dropdown' as={NavLink}>Recipes</Dropdown.Toggle>
+                <Dropdown.Toggle id='basic-nav-dropdown' as={NavLink}>
+                  Recipes
+                </Dropdown.Toggle>
                 <Dropdown.Menu as={CustomMenu}>
-                  <Dropdown.Item key='all-recipes' href={`/recipes/categories/all`}>
+                  <Dropdown.Item
+                    key='all-recipes'
+                    href={`/recipes/categories/all`}
+                  >
                     All Recipes
                   </Dropdown.Item>
-                  {
-                    !loading && categoryList && categoryList.length > 0 &&
+                  {!loading && categoryList && categoryList.length > 0 && (
                     <Dropdown.Divider />
-                  }
-                  {
-                    !loading && categoryList && categoryList.length > 0 &&
-                    categoryList.map(category => {
+                  )}
+                  {!loading &&
+                    categoryList &&
+                    categoryList.length > 0 &&
+                    categoryList.map((category) => {
                       return (
-                        <Dropdown.Item key={category.uid} href={`/recipes/categories/${category.uid}`}>
+                        <Dropdown.Item
+                          key={category.uid}
+                          href={`/recipes/categories/${category.uid}`}
+                        >
                           {category.name}
                         </Dropdown.Item>
                       );
-                    })
-                  }
+                    })}
                 </Dropdown.Menu>
               </Dropdown>
             </div>
@@ -119,7 +128,6 @@ export default function Header() {
               </Button>
             </div>
           </Form>
-
         </Navbar.Collapse>
       </div>
     </Navbar>
