@@ -24,6 +24,7 @@ Variables
   --artsyFont: 'Cinzel Decorative', cursive;
 
   --primaryColor: rgba(0, 0, 0, 0.9);
+  --secondaryColor: #956802;
 }
 
 /*
@@ -87,8 +88,18 @@ $grid-breakpoints: (
 
 $grid-gutter-width: 30px !default;
 
+.card-deck {
+  text-transform: capitalize;
+}
+
+/*
+======
+category card
+=====
+*/
+
 // number of cards per line for each breakpoint
-$cards-per-line: (
+$category-cards-per-line: (
     xs: 1,
     sm: 2,
     md: 3,
@@ -98,42 +109,98 @@ $cards-per-line: (
 
 @each $name, $breakpoint in $grid-breakpoints {
     @media (min-width: $breakpoint) {
-        .card-deck .card {
-            flex: 0 0 calc(#{100/map-get($cards-per-line, $name)}% - #{$grid-gutter-width});
+        .card-deck .category-card {
+            flex: 0 0 calc(#{100/map-get($category-cards-per-line, $name)}% - #{$grid-gutter-width});
         }
     }
 }
 
-.card {
+.category-card {
   height: 20rem;
   padding-bottom: 1rem;
   border: none;
 }
 
-.cardImageContainer {
+.category-cardImageContainer {
   width: 100%;
   height: 90%;
 }
 
-.cardBody {
-  height: 10%;
-}
-
 /* resize images */
-.cardImageContainer img {
+.category-cardImageContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.cardBody {
+.category-cardBody {
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.cardBody span {
+.category-cardBody span {
   color: var(--primaryColor);
+}
+
+/*
+======
+recipe card
+=====
+*/
+// number of cards per line for each breakpoint
+$recipe-cards-per-line: (
+  xs: 1,
+  sm: 2,
+  md: 2,
+  lg: 3,
+  xl: 4
+);
+
+@each $name, $breakpoint in $grid-breakpoints {
+  @media (min-width: $breakpoint) {
+      .card-deck .recipe-card {
+          flex: 0 0 calc(#{100/map-get($recipe-cards-per-line, $name)}% - #{$grid-gutter-width});
+      }
+  }
+}
+
+.recipe-card {
+  height: 30rem;
+  padding-bottom: 1rem;
+  border: none;
+}
+
+.recipe-cardImageContainer {
+  width: 100%;
+  height: 80%;
+}
+
+/* resize images */
+.recipe-cardImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-cardBody {
+  height: 20%;
+}
+
+.recipe-cardTitle {
+  padding-top: 0.5rem;
+}
+
+.recipe-cardBody span {
+  color: var(--primaryColor);
+}
+
+.recipe-cardTimer {
+  color: var(--secondaryColor);
+}
+.recipe-cardIngredients {
+  color: var(--secondaryColor);
 }
 
 /*

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { IRecipe } from '../strapi/APItypes';
+import { CardDeck } from 'react-bootstrap';
+import RecipeCard from './RecipeCard';
 
 export interface IRecipeListProps {
   recipeList: IRecipe[]
@@ -8,17 +9,29 @@ export interface IRecipeListProps {
 
 export default function RecipeList ({recipeList}: IRecipeListProps) {
   return (
-    <div>
-      <ul className='recipes'>
+    <div className='recipes'>
+      <CardDeck>
         {recipeList.map(item => {
+          const time = item.timeNeeded.cookTime + item.timeNeeded.prepTime + item.timeNeeded.waitTime;
+          let displayTime = '';
+          if (time < 60) {
+            displayTime = `${time}min`;
+          } else if (time < 60*12) {
+            displayTime = `${time%60 === 0 ? (time/60) : (time/60).toFixed(1)}h`;
+          } else {
+            displayTime = 'overnight';
+          }
           return (
-            <li key={item.name} className='recipe'>
-              <img src={item.images[0].url} alt={item.images[0].alternativeText}/>
-              <Link to={`/recipes/${item.uid}`} className='btn btn-primary product-link'>{item.name}</Link>
-            </li>
+            <RecipeCard
+              image={item.images[0]}
+              name={item.name}
+              url={`/recipes/${item.uid}`}
+              numOfingredients={item.ingredients.length}
+              minBeforeReady={displayTime}
+            />
           )
         })}
-      </ul>
+      </CardDeck>
     </div>
   );
 }

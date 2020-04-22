@@ -2,32 +2,29 @@ import * as React from 'react';
 import { IImage } from '../strapi/APItypes';
 import { Card, Image } from 'react-bootstrap';
 
-export interface IBasicCardProps {
+export interface ICategoryCardProps {
   image: IImage;
   name: string;
-  description?: string;
   url: string;
 }
 
-export default function BasicCard({
+export default function CategoryCard({
   image,
   name,
-  description,
   url,
-}: IBasicCardProps) {
+}: ICategoryCardProps) {
   return (
-    <Card className='card' border='light'>
-      <div className='cardImageContainer'>
+    <Card className='category-card' border='light'>
+      <div className='category-cardImageContainer'>
         <Card.Link href={url}>
           <Image src={image.url} />
         </Card.Link>
       </div>
 
-      <div className='cardBody'>
-        <div className='cardTitle'>
+      <div className='category-cardBody'>
+        <div className='category-cardTitle'>
           <Card.Link href={url}><span>{name}</span></Card.Link>
         </div>
-        {/* {description && <Card.Text>{description}</Card.Text>} */}
       </div>
     </Card>
   );
