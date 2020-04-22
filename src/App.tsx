@@ -20,24 +20,27 @@ import ContextProvider from './context/ContextProvider';
 
 // components
 import Header from './component/Header';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <ContextProvider>
       <Router history={history}>
         <Header />
-        <Switch>
-          <Route exact path='/'  component={Home} />
-          <Route exact path='/about'  component={About} />
-          {/* a page with many recipe categories */}
-          <Route exact path='/recipes/categories'  component={RecipeCategories} />
-          {/* a page with many recipes */}
-          <Route exact path='/recipes/categories/:categoryUID'  component={Recipes} />
-          {/* a page with details of a single recipe */}
-          <Route exact path='/recipes/:recipeUID' component={RecipeDetails}/>
+        <Container className='mainContent'>
+          <Switch>
+            <Route exact path='/'  component={Home} />
+            <Route exact path='/about'  component={About} />
+            {/* a page with many recipe categories */}
+            <Route exact path='/recipes/categories'  component={RecipeCategories} />
+            {/* a page with many recipes */}
+            <Route exact path='/recipes/categories/:categoryUID'  component={Recipes} />
+            {/* a page with details of a single recipe */}
+            <Route exact path='/recipes/:recipeUID' component={RecipeDetails}/>
 
-          <Route component={Error} />
-        </Switch>
+            <Route component={Error} />
+          </Switch>
+        </Container>
       </Router>
     </ContextProvider>
   );

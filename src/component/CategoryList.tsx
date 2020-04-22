@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { ICategory } from '../strapi/APItypes';
+import BasicCard from './BasicCard';
+import { CardDeck } from 'react-bootstrap';
 
 export interface ICategoryListProps {
   categoryList: ICategory[]
@@ -8,17 +9,24 @@ export interface ICategoryListProps {
 
 export default function CategoryList ({categoryList}: ICategoryListProps) {
   return (
-    <div>
-      <ul className='categories'>
+    // <div>
+    //   <ul className='categories'>
+    <div className='categories'>
+      <CardDeck>
         {categoryList.map(item => {
           return (
-            <li key={item.name} className='category'>
-              <img src={item.featuredImage.url} alt={item.featuredImage.alternativeText}/>
-              <Link to={`/recipes/categories/${item.uid}`} className='btn btn-primary product-link'>{item.name}</Link>
-            </li>
+            <BasicCard
+              image={item.featuredImage}
+              name={item.name}
+              url={`/recipes/categories/${item.uid}`}
+            />
+            // <li key={item.name} className='category'>
+            //   <img src={item.featuredImage.url} alt={item.featuredImage.alternativeText}/>
+            //   <Link to={`/recipes/categories/${item.uid}`} className='btn btn-primary product-link'>{item.name}</Link>
+            // </li>
           )
         })}
-      </ul>
+      </CardDeck>
     </div>
   );
 }
