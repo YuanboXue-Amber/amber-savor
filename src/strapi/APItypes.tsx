@@ -1,7 +1,7 @@
 export interface ICategory {
   name: string;
   uid: string;
-  updatedAt: Date;
+  updatedAt: string;
   featuredImage: IImage;
   recipes: IRecipe[];
 }
@@ -16,7 +16,7 @@ export interface IRecipe {
   serves: number;
   timeNeeded: ITimeNeeded;
   instructions: IInstruction[];
-  updatedAt: Date;
+  updatedAt: string;
 }
 
 export interface IImage {

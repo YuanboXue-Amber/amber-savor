@@ -24,7 +24,8 @@ Variables
   --artsyFont: 'Cinzel Decorative', cursive;
 
   --primaryColor: rgba(0, 0, 0, 0.9);
-  --secondaryColor: #956802;
+  --primaryGreyColor: white;
+  --secondaryColor: #75a3a3;
 }
 
 /*
@@ -210,5 +211,17 @@ categories cards
 */
 .categories div {
   margin: 0 auto;
+}
+
+/*
+======
+carousel cards
+=====
+*/
+.carousel {
+  width: 100vw;
+  position: relative;
+  left: calc(-50vw + 50%);
+  padding-bottom: 5rem;
 }
 
