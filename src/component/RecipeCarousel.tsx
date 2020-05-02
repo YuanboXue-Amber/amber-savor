@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IRecipe } from '../strapi/APItypes';
 import { Carousel } from 'react-bootstrap';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 interface IStyledHeroProps {
   imgUrl: string;
@@ -49,13 +50,15 @@ export interface IRecipeCarouselProps {
 }
 
 export default function RecipeCarousel ({featuredRecipes}: IRecipeCarouselProps) {
+  const history = useHistory();
+
   return (
     <Carousel>
       {
         featuredRecipes.map(recipe => {
           return (
-            <Carousel.Item>
-              <StyledHero imgUrl={recipe.images[0].url} />
+            <Carousel.Item onClick={() => {history.push(`/recipes/${recipe.uid}`)}}>
+              <StyledHero imgUrl={recipe.images[0].url}/>
               <Carousel.Caption>
                 <p className='carousel-captionTitle'>{recipe.name}</p>
                 <p>{recipe.description}</p>

@@ -225,6 +225,10 @@ carousel
   padding-bottom: 5rem;
 }
 
+.carousel-item {
+  cursor: pointer;
+}
+
 .carousel-captionTitle{
   text-transform: capitalize;
   color: var(--primaryGreyColor);
