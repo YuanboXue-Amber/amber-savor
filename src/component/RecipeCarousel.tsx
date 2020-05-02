@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { IRecipe } from '../strapi/APItypes';
 import { Carousel } from 'react-bootstrap';
-import { useState } from 'react';
 import styled from 'styled-components';
 
-export interface IStyledHeroProps {
+interface IStyledHeroProps {
   imgUrl: string;
 }
 
@@ -50,22 +49,16 @@ export interface IRecipeCarouselProps {
 }
 
 export default function RecipeCarousel ({featuredRecipes}: IRecipeCarouselProps) {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex: React.SetStateAction<number>, e: any) => {
-    setIndex(selectedIndex);
-  };
-
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel>
       {
         featuredRecipes.map(recipe => {
           return (
             <Carousel.Item>
               <StyledHero imgUrl={recipe.images[0].url} />
               <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <p className='carousel-captionTitle'>{recipe.name}</p>
+                <p>{recipe.description}</p>
               </Carousel.Caption>
             </Carousel.Item>
           );

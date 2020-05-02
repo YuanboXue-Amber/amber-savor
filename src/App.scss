@@ -24,7 +24,7 @@ Variables
   --artsyFont: 'Cinzel Decorative', cursive;
 
   --primaryColor: rgba(0, 0, 0, 0.9);
-  --primaryGreyColor: white;
+  --primaryGreyColor: rgba(0, 0, 0, 0.5);
   --secondaryColor: #75a3a3;
 }
 
@@ -215,7 +215,7 @@ categories cards
 
 /*
 ======
-carousel cards
+carousel
 =====
 */
 .carousel {
@@ -225,3 +225,88 @@ carousel cards
   padding-bottom: 5rem;
 }
 
+.carousel-captionTitle{
+  text-transform: capitalize;
+  color: var(--primaryGreyColor);
+  font-weight: bold;
+}
+
+.carousel-caption p{
+  color: white;
+}
+
+.carousel-indicators li,
+.carousel-indicators .active {
+  background-color: var(--secondaryColor);
+}
+
+@media (max-width: 576px) {
+  .carousel-captionTitle {
+    font-size: 1rem;
+  }
+  .carousel-caption {
+    font-size: 0.85rem;
+    top: 50% !important;
+  }
+  .carousel-indicators li,
+  .carousel-indicators .active {
+    background-color: white;
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  .carousel-captionTitle {
+    font-size: 1.5rem;
+  }
+  .carousel-caption {
+    top: 55% !important;
+  }
+  .carousel-indicators {
+    top: 75% !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1920px){
+  .carousel-captionTitle {
+    font-size: 2.5rem;
+  }
+  .carousel-caption {
+    font-size: 1.5rem;
+    top: 60% !important;
+  }
+  .carousel-indicators {
+    top: 82% !important;
+  }
+}
+@media (min-width: 1921px) {
+  .carousel-captionTitle {
+    font-size: 3rem;
+  }
+  .carousel-caption {
+    font-size: 2rem;
+    top: 70% !important;
+  }
+  .carousel-indicators {
+    top: 85% !important;
+  }
+}
+
+/*
+======
+myTitle
+=====
+*/
+.myTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem;
+  padding-bottom: 2rem;
+  color: var(--primaryColor);
+}
+.myTitle span {
+  font-family: var(--handwritingFont);
+  text-transform: capitalize;
+  font-size: 3rem;
+}

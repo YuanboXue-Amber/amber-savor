@@ -3,6 +3,7 @@ import CategoryList from '../component/CategoryList';
 import { Context } from '../context/ContextProvider';
 import Loading from '../component/Loading';
 import RecipeCarousel from '../component/RecipeCarousel';
+import Title from '../component/Title';
 
 export interface IHomeProps {
 }
@@ -24,6 +25,7 @@ export default function Home (props: IHomeProps) {
   return (
     <div>
       <RecipeCarousel featuredRecipes={newRecipes} />
+      <Title name={'Recipes'} />
       <CategoryList categoryList={categoryList}/>
     </div>
   );

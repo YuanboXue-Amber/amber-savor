@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import RecipeList from '../component/RecipeList';
 import { Context } from '../context/ContextProvider';
 import Loading from '../component/Loading';
+import Title from '../component/Title';
 
 export default function Recipes () {
   const {categoryUID} = useParams();
@@ -26,7 +27,7 @@ export default function Recipes () {
 
   return (
     <div>
-      this is a list of recipes of categoryUID: {categoryUID}
+      <Title name={categoryUID?.replace(/-/g, ' ') || 'Recipes'} />
       <RecipeList recipeList={recipeList}/>
     </div>
   );
