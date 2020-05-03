@@ -57,7 +57,7 @@ export default function RecipeJumbotron({ recipe }: IRecipeJumbotronProps) {
                         <span className='recipeJumbotron-keyword'>
                           <BsDot />
                         </span>
-                        {`${item.quantity} ${item.name}`}
+                        {`${item.name}: ${item.quantity}`}
                       </ListGroup.Item>
                     );
                   })}
