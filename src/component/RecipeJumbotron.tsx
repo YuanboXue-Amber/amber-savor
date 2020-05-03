@@ -3,6 +3,7 @@ import { IRecipe, IIngredient } from '../strapi/APItypes';
 import { Jumbotron, ListGroup, Image } from 'react-bootstrap';
 import { convertMinToDisplay } from '../utils/timeConvertor';
 import { BsDot } from 'react-icons/bs';
+import MarkdownContainer from './MarkdownContainer';
 
 export interface IRecipeJumbotronProps {
   recipe: IRecipe;
@@ -18,7 +19,7 @@ export default function RecipeJumbotron({ recipe }: IRecipeJumbotronProps) {
         <ListGroup.Item className='recipeJumbotron-contentContainer'>
           <ListGroup variant='flush'>
             <ListGroup.Item className='recipeJumbotron-description'>
-              {recipe.description}
+              <MarkdownContainer content={recipe.description} />
             </ListGroup.Item>
             <ListGroup.Item>
               <span className='recipeJumbotron-keyword'>Serves: </span>
