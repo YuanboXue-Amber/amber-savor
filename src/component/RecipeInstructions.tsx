@@ -10,7 +10,6 @@ export interface IRecipeInstructionsProps {
 export default function RecipeInstructions({
   instructions,
 }: IRecipeInstructionsProps) {
-  instructions.sort((a, b) => a.step - b.step);
   return (
     <ListGroup variant='flush'>
       {instructions.map((step) => (

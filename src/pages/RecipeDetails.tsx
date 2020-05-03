@@ -5,6 +5,8 @@ import Loading from '../component/Loading';
 import Title from '../component/Title';
 import RecipeJumbotron from '../component/RecipeJumbotron';
 import RecipeInstructions from '../component/RecipeInstructions';
+import { Tabs, Tab } from 'react-bootstrap';
+import RecipeInstructionsShort from '../component/RecipeInstructionsShort';
 
 export interface IRecipeDetailsProps {}
 
@@ -28,11 +30,19 @@ export default function RecipeDetails(props: IRecipeDetailsProps) {
     );
   }
 
+  recipe.instructions.sort((a, b) => a.step - b.step);
   return (
     <div>
       <Title name={recipe.name} />
       <RecipeJumbotron recipe={recipe} />
-      <RecipeInstructions instructions={recipe.instructions} />
+      <Tabs id='recipe-instructions-tabs'>
+        <Tab eventKey='1' title='detailed Instructions'>
+          <RecipeInstructions instructions={recipe.instructions} />
+        </Tab>
+        <Tab eventKey='2' title='Shorter instructions'>
+          <RecipeInstructionsShort instructions={recipe.instructions} />
+        </Tab>
+      </Tabs>
     </div>
   );
 }
