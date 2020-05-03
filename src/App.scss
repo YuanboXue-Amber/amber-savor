@@ -35,13 +35,22 @@ Global Styles
 */
 body {
   font-family: var(--primaryFont);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .mainContent {
   margin-right: auto;
   margin-left: auto;
   max-width: 1200px;
+  padding-bottom: 5rem;
+
+  // keep the footer to bottom
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
 @media screen and (min-width: 1921px) {
   .mainContent {
     max-width: 1800px;
@@ -479,4 +488,19 @@ about
 
   width: 80%;
   margin: 0 auto;
+}
+
+/*
+======
+footer
+=====
+*/
+.myfooter {
+  background-color: var(--secondaryColor) !important;
+  margin-top: auto; // keep the footer to bottom
+}
+.contact-me-button {
+  border: none;
+  background-color: white;
+  color: var(--secondaryColor);
 }
