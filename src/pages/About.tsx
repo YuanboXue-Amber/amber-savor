@@ -1,12 +1,12 @@
 import * as React from 'react';
+import AboutComponent from '../component/About';
 
-export interface IAboutProps {
-}
+export interface IAboutProps {}
 
-export default function About (props: IAboutProps) {
+export default function About(props: IAboutProps) {
   return (
     <div>
-      about page
+      <AboutComponent />
     </div>
   );
 }
