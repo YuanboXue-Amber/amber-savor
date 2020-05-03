@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import Recipe from '../component/Recipe';
 import { Context } from '../context/ContextProvider';
 import Loading from '../component/Loading';
 import Title from '../component/Title';
 import RecipeJumbotron from '../component/RecipeJumbotron';
+import RecipeInstructions from '../component/RecipeInstructions';
 
 export interface IRecipeDetailsProps {}
 
@@ -32,8 +32,7 @@ export default function RecipeDetails(props: IRecipeDetailsProps) {
     <div>
       <Title name={recipe.name} />
       <RecipeJumbotron recipe={recipe} />
-      this is one recipe of recipeUID: {recipeUID}
-      <Recipe recipe={recipe} />
+      <RecipeInstructions instructions={recipe.instructions} />
     </div>
   );
 }

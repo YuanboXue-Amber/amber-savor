@@ -12,7 +12,7 @@ export interface IRecipeJumbotronProps {
 export default function RecipeJumbotron({ recipe }: IRecipeJumbotronProps) {
   return (
     <Jumbotron>
-      <ListGroup horizontal='md'>
+      <ListGroup horizontal='md' className='recipeJumbotron'>
         <ListGroup.Item className='recipeJumbotron-imageContainer'>
           <Image className='recipeJumbotron-image' src={recipe.images[0].url} />
         </ListGroup.Item>
