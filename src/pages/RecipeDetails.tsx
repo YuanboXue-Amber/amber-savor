@@ -6,25 +6,24 @@ import Loading from '../component/Loading';
 import Title from '../component/Title';
 import RecipeJumbotron from '../component/RecipeJumbotron';
 
-export interface IRecipeDetailsProps {
-}
+export interface IRecipeDetailsProps {}
 
-export default function RecipeDetails (props: IRecipeDetailsProps) {
-  const {recipeUID} = useParams();
+export default function RecipeDetails(props: IRecipeDetailsProps) {
+  const { recipeUID } = useParams();
   const context = React.useContext(Context);
-  const {loading, recipe, modifyContext} = context;
+  const { loading, recipe, modifyContext } = context;
 
   React.useEffect(() => {
     modifyContext.getOneRecipe(recipeUID);
-  }, [recipeUID, modifyContext])
+  }, [recipeUID, modifyContext]);
 
-  if (loading)
-    return (<Loading />);
+  if (loading) return <Loading />;
 
   if (!recipe) {
     return (
       <div>
-        no recipe found of recipeUID: {recipeUID}
+        <br />
+        <Title name={'Oops, no recipe found...'} />;
       </div>
     );
   }
@@ -34,7 +33,7 @@ export default function RecipeDetails (props: IRecipeDetailsProps) {
       <Title name={recipe.name} />
       <RecipeJumbotron recipe={recipe} />
       this is one recipe of recipeUID: {recipeUID}
-      <Recipe recipe={recipe}/>
+      <Recipe recipe={recipe} />
     </div>
   );
 }

@@ -5,22 +5,22 @@ import { Context } from '../context/ContextProvider';
 import Loading from '../component/Loading';
 import Title from '../component/Title';
 
-export default function Recipes () {
-  const {categoryUID} = useParams();
+export default function Recipes() {
+  const { categoryUID } = useParams();
   const context = React.useContext(Context);
-  const {loading, recipeList, modifyContext} = context;
+  const { loading, recipeList, modifyContext } = context;
 
   React.useEffect(() => {
     modifyContext.getRecipes(categoryUID);
-  }, [categoryUID, modifyContext])
+  }, [categoryUID, modifyContext]);
 
-  if (loading)
-    return (<Loading />);
+  if (loading) return <Loading />;
 
   if (recipeList.length <= 0) {
     return (
       <div>
-        no recipe found of categoryUID: {categoryUID}
+        <br />
+        <Title name={'Oops, no recipe found...'} />;
       </div>
     );
   }
@@ -28,7 +28,7 @@ export default function Recipes () {
   return (
     <div>
       <Title name={categoryUID?.replace(/-/g, ' ') || 'Recipes'} />
-      <RecipeList recipeList={recipeList}/>
+      <RecipeList recipeList={recipeList} />
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import * as React from 'react';
+import Title from '../component/Title';
 
-export interface IErrorProps {
-}
+export interface IErrorProps {}
 
-export default function Error (props: IErrorProps) {
+export default function Error(props: IErrorProps) {
   return (
     <div>
-      error page
+      <br />
+      <Title name={'Oops, page not found...'} />
     </div>
   );
 }
