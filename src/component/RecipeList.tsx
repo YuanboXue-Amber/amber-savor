@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IRecipe } from '../strapi/APItypes';
 import { CardDeck } from 'react-bootstrap';
 import RecipeCard from './RecipeCard';
+import { convertMinToDisplay } from '../utils/timeConvertor';
 
 export interface IRecipeListProps {
   recipeList: IRecipe[]
@@ -13,14 +14,7 @@ export default function RecipeList ({recipeList}: IRecipeListProps) {
       <CardDeck>
         {recipeList.map(item => {
           const time = item.timeNeeded.cookTime + item.timeNeeded.prepTime + item.timeNeeded.waitTime;
-          let displayTime = '';
-          if (time < 60) {
-            displayTime = `${time}min`;
-          } else if (time < 60*12) {
-            displayTime = `${time%60 === 0 ? (time/60) : (time/60).toFixed(1)}h`;
-          } else {
-            displayTime = 'overnight';
-          }
+          const displayTime = convertMinToDisplay(time);
           return (
             <RecipeCard
               image={item.images[0]}

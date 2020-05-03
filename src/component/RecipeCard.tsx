@@ -33,7 +33,7 @@ export default function RecipeCard({
         </div>
         <Card.Text>
           <Row className="justify-content">
-            <Col md={4} xs className='recipe-cardTimer'>
+            <Col md={5} xs className='recipe-cardTimer'>
               <IoIosTimer />{minBeforeReady}
             </Col>
             <Col md={6} xs className='recipe-cardIngredients'>
