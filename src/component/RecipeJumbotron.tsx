@@ -25,12 +25,7 @@ export default function RecipeJumbotron({ recipe }: IRecipeJumbotronProps) {
               {recipe.serves}
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className='recipeJumbotron-keyword'>Finishes In: </span>
-              {convertMinToDisplay(
-                recipe.timeNeeded.cookTime +
-                  recipe.timeNeeded.prepTime +
-                  recipe.timeNeeded.waitTime
-              )}
+              <span className='recipeJumbotron-keyword'>Time needed </span>
               {
                 <ListGroup horizontal='sm' className='inner-ListGroup'>
                   <ListGroup.Item>
